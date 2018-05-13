@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaplesAppUI", "StaplesAppUI\StaplesAppUI.csproj", "{E9C1A634-C3F1-4AEF-A639-588008C6E89F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaplesAppSL", "..\..\Staples\StaplesApp\StaplesAppSL\StaplesAppSL.csproj", "{F7FECAA8-AC36-45C5-B0BB-E9FAD6786B52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaplesAppDAL", "..\..\Staples\StaplesApp\StaplesAppDAL\StaplesAppDAL.csproj", "{79BA028A-2E5B-4152-B0FB-F7168C9E31B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{E9C1A634-C3F1-4AEF-A639-588008C6E89F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9C1A634-C3F1-4AEF-A639-588008C6E89F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9C1A634-C3F1-4AEF-A639-588008C6E89F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7FECAA8-AC36-45C5-B0BB-E9FAD6786B52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7FECAA8-AC36-45C5-B0BB-E9FAD6786B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7FECAA8-AC36-45C5-B0BB-E9FAD6786B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7FECAA8-AC36-45C5-B0BB-E9FAD6786B52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79BA028A-2E5B-4152-B0FB-F7168C9E31B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79BA028A-2E5B-4152-B0FB-F7168C9E31B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79BA028A-2E5B-4152-B0FB-F7168C9E31B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79BA028A-2E5B-4152-B0FB-F7168C9E31B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
