@@ -8,21 +8,20 @@
 <div class="row">
     <h3>Add Person</h3>
     @using (Html.BeginForm("SavePerson", "Person", FormMethod.Post, new { id = "person-form" }))
-        {
-    @*<form class="form-inline" id="person-form" name="person-form">*@
+    {
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="well well-lg">
             <div class="row">
                 <div class="col-xs-3">
                     <div class="form-group">
                         <label class="control-label">First Name</label>
-                        @Html.TextBoxFor(model => model.Person.FirstName, new {  @id = "first-name", @class = "form-control", @placeholder = "Enter first name" })
+                        @Html.TextBoxFor(model => model.Person.FirstName, new { @id = "first-name", @class = "form-control", @placeholder = "Enter first name" })
                     </div>
                 </div>
                 <div class="col-xs-3">
                     <div class="form-group">
                         <label class="control-label">Last Name</label>
-                        @Html.TextBoxFor(model => model.Person.LastName, new {  @id = "last-name", @class = "form-control", @placeholder = "Enter last name" })
+                        @Html.TextBoxFor(model => model.Person.LastName, new { @id = "last-name", @class = "form-control", @placeholder = "Enter last name" })
                     </div>
                 </div>
                 <div class="col-xs-3">
@@ -34,7 +33,7 @@
                 <div class="col-xs-2">
                     <div class="form-group">
                         <label class="control-label">Gender</label>
-                        @Html.EnumDropDownListFor(model=>model.Person.Gender, new { @class ="form-control"})                    
+                        @Html.EnumDropDownListFor(model => model.Person.Gender, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="col-xs-1">
@@ -47,8 +46,7 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary" id="submitButton">Add Person</button>
-    @*</form>*@
-      }
+    }
 </div>
 
 <div class="container" id="PeopleReport">
@@ -75,6 +73,26 @@
 
         </tbody>
     </table>
+</div>
+
+<div id="errorModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header alert-danger">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">There was a problem with data saving</h4>
+            </div>
+            <div class="modal-body">
+                <p id="errorMessage">
+                    An unexpected error occurred.
+                    Part of the data could have been unsaved.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 @Scripts.Render("~/bundles/person")

@@ -106,4 +106,8 @@
 <Person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <FirstName>Agata</FirstName>
   <LastName>Staropolska</LastName>
+</Person><?xml version="1.0"?>
+<Person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FirstName>Mariusz</FirstName>
+  <LastName>Rudobrody</LastName>
 </Person>

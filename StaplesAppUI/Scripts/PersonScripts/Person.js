@@ -6,6 +6,7 @@
         AutoWidth: false,
     });
     PrepareValidationRules();
+
 });
 
 
@@ -41,9 +42,6 @@ function PrepareValidationRules() {
 }
 
 function CallForPersonData() {
-
-
-
     $.ajax({
         type: "POST",
         url: "Person/SavePerson",
@@ -61,35 +59,11 @@ function CallForPersonData() {
         success: function (data) {
             location.reload();
         },
-        error: function (xhr, status, error) {
-            var errorMessage = xhr.status + ': ' + xhr.statusText
-            //PrepareErrorMessage(xhr.responseText);
-            console.log('error');
+        error: function () {
+            $('#errorModal').modal('show');
         }
     });
     return false;
 }
 
-function PropagatePeopleTable() {
 
-    var tbody = $('#PeopleTable').find('tbody');
-    tbody.append('<tr><td>' + $('input[name="Person.FirstName"]').val() + '</td><td>' + $('input[name="Person.LastName"]').val()+'</td></tr>');
-
-    //var price = $('input[name=priceInput]').val();
-    //var tbody = energyConsumptionRecord.find('tbody');
-    //tbody.find('tr').remove();
-
-    //$.each(data, function (index, value) {
-    //    tbody.append('<tr><td class="daylyValue">' + value.day + '</td><td class="monthlyValue">' + value.month + '</td><td>' + value.year + '</td><td>' + value.consumption.toFixed(2) + '</td><td>' + (value.consumption * price).toFixed(2) + '</td></tr>');
-    //});
-
-    //SetReportTableColumnsVisibility(data);
-
-    PeopleTable = $('#PeopleTable').DataTable({
-        searching: false,
-        lengthChange: false,
-        AutoWidth: false,
-    });
-
-    //energyConsumptionRecord.show();
-}
