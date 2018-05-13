@@ -7,54 +7,55 @@
 
 <div class="row">
     <h3>Add Person</h3>
-    @using (Html.BeginForm("SavePerson", "Person", FormMethod.Post))
-    {
+    @using (Html.BeginForm("SavePerson", "Person", FormMethod.Post, new { id = "person-form" }))
+        {
+    @*<form class="form-inline" id="person-form" name="person-form">*@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="well well-lg">
             <div class="row">
                 <div class="col-xs-3">
                     <div class="form-group">
                         <label class="control-label">First Name</label>
-                        @Html.TextBoxFor(model => model.Person.FirstName, new { @class = "form-control", @placeholder = "Enter first name" })
+                        @Html.TextBoxFor(model => model.Person.FirstName, new {  @id = "first-name", @class = "form-control", @placeholder = "Enter first name" })
                     </div>
                 </div>
                 <div class="col-xs-3">
                     <div class="form-group">
                         <label class="control-label">Last Name</label>
-                        @Html.TextBoxFor(model => model.Person.LastName, new { @class = "form-control", @placeholder = "Enter last name" })
+                        @Html.TextBoxFor(model => model.Person.LastName, new {  @id = "last-name", @class = "form-control", @placeholder = "Enter last name" })
                     </div>
                 </div>
                 <div class="col-xs-3">
                     <div class="form-group">
                         <label class="control-label">Telephone</label>
-                        @Html.TextBoxFor(model => model.Person.Telephone, new { @class = "form-control", @placeholder = "Enter telephone number" })
+                        @Html.TextBoxFor(model => model.Person.Telephone, new { @id = "telephone", @class = "form-control", @placeholder = "Enter telephone number" })
                     </div>
                 </div>
                 <div class="col-xs-2">
                     <div class="form-group">
                         <label class="control-label">Gender</label>
-                        <select class="form-control" asp-for="Person.Gender" asp-items="Html.GetEnumSelectList<Gender>()"></select>
+                        @Html.EnumDropDownListFor(model=>model.Person.Gender, new { @class ="form-control"})                    
                     </div>
                 </div>
                 <div class="col-xs-1">
                     <div class="form-group">
                         <label class="control-label">Age</label>
-                        @Html.TextBoxFor(model => model.Person.Age, new { @class = "form-control", @placeholder = "Age" })
+                        @Html.TextBoxFor(model => model.Person.Age, new { @id = "age", @class = "form-control", @placeholder = "Age" })
                     </div>
                 </div>
 
             </div>
         </div>
         <button type="submit" class="btn btn-primary" id="submitButton">Add Person</button>
-    }
+    @*</form>*@
+      }
 </div>
 
-<div class="container" id="energyConsumptionReport">
+<div class="container" id="PeopleReport">
     <h2>Personal details</h2>
-    <table class="table table-hover" id="energyConsumptionTable">
+    <table class="table table-hover" id="PeopleTable">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>First Name</th>
                 <th>Last Name</th>
             </tr>
@@ -64,19 +65,17 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.FirstName)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.LastName)
                     </td>
-
                 </tr>
             }
 
         </tbody>
     </table>
 </div>
+
+@Scripts.Render("~/bundles/person")
 

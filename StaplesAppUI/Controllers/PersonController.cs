@@ -4,6 +4,7 @@ using StaplesAppUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -23,17 +24,20 @@ namespace StaplesAppUI.Controllers
 
         }
 
-        public ActionResult AddPerson()
+        public async Task<ActionResult> AddPerson()
         {
+            var personService = new PersonStorageService();
             var testModel = new PersonViewModel();
+            testModel.People = await personService.GetPeople();
             return View(testModel);
         }
 
-        public async Task<ActionResult> SavePerson(Person person)
+        [HttpPost]
+        public async Task<JsonResult> SavePerson(Person person)
         {
-            var personServicce = new PersonStorageService();
-            await personServicce.AddPerson(person);
-            return View();
+            var personService = new PersonStorageService();
+            await personService.AddPerson(person);
+            return Json("success");
         }
     }
 }

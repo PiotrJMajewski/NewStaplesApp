@@ -29,6 +29,14 @@ namespace StaplesAppSL.Services
             
             await dbRepository.AddAsync(dalPerson);
             logRepository.LogPersonEvent(dalPerson);
+        }
+
+        public async Task<List<Person>> GetPeople()
+        {
+            var dbRepository = new PersonDbRepository();
+            var dalPeople = await dbRepository.GetWhereAsync();
+            var people = Mapper.Map<List<StaplesAppDAL.Models.Person>, List<StaplesAppSL.Models.Person>>(dalPeople);
+            return people;
 
         }
 

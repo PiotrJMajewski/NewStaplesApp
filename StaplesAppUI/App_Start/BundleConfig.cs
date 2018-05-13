@@ -23,9 +23,14 @@ namespace StaplesAppUI
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/person").Include("~/Scripts/jquery.validate.min.js", 
+                "~/Scripts/jquery.dataTables.min.js",
+          "~/Scripts/PersonScripts/person.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/jquery.dataTables.css"));
         }
     }
 }
