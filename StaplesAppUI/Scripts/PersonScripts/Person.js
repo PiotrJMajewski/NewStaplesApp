@@ -6,9 +6,7 @@
         AutoWidth: false,
     });
     PrepareValidationRules();
-
 });
-
 
 function PrepareValidationRules() {
     $("#person-form").validate({
