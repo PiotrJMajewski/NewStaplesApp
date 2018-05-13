@@ -21,10 +21,16 @@ function PrepareValidationRules() {
             'Person.LastName': {
                 required: true,
             },
+            'Person.Age': {
+                number: true,
+            },
         },
         messages: {
             'Person.Telephone': {
                 number: "The telephone must be a number",
+            },
+            'Person.Age': {
+                number: "Age must be a number",
             },
             'Person.FirstName': {
                 required: "Please enter first name",
@@ -48,8 +54,8 @@ function CallForPersonData() {
             FirstName: $('input[name="Person.FirstName"]').val(),
             LastName: $('input[name="Person.LastName"]').val(),
             Telephone: $('input[name="Person.Telephone"]').val(),
-            Gender: "Male",
-            Age: "22"
+            Gender: $('select[name="Person.Gender"]').val(),
+            Age: $('input[name="Person.Age"]').val(),
 
         }),
         dataType: "json",
