@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FirstName>Jan</FirstName>
+  <LastName>Kowalski</LastName>
+</Person><?xml version="1.0"?>
+<Person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FirstName>Greta</FirstName>
+  <LastName>van Fleet</LastName>
+</Person>
