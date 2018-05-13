@@ -1,43 +1,34 @@
-﻿using StaplesAppSL.Models;
+﻿using StaplesAppSL.Interfaces;
+using StaplesAppSL.Models;
 using StaplesAppSL.Services;
+using StaplesAppUI.Interfaces;
 using StaplesAppUI.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace StaplesAppUI.Controllers
 {
-    public class PersonController : Controller
+    public class PersonController : Controller, IPersonController
     {
-        // GET: Person
-        public ActionResult Index()
-        {
-            return View();
-        }
+        IPersonStorageService personService;
 
-        public PersonController()
+        public PersonController(IPersonStorageService personService)
         {
-
+            this.personService = personService;
         }
 
         public async Task<ActionResult> AddPerson()
         {
-            var personService = new PersonStorageService();
-            var testModel = new PersonViewModel();
-            testModel.People = await personService.GetPeople();
-            return View(testModel);
+            var personViewModel = new PersonViewModel();
+            personViewModel.People = await personService.GetPeople();
+            return View(personViewModel) ;
         }
 
         [HttpPost]
         public async Task<JsonResult> SavePerson(Person person)
         {
-            var personService = new PersonStorageService();
-            await personService.AddPerson(person);
-            return Json("success");
+                await personService.AddPerson(person);
+                return Json("success");
         }
     }
 }

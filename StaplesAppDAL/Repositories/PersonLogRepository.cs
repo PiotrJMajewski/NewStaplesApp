@@ -1,4 +1,5 @@
 ﻿using NLog;
+using StaplesAppDAL.Interfaces;
 using StaplesAppDAL.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StaplesAppDAL.Repositories
 {
-    public class PersonLogRepository
+    public class PersonLogRepository: IPersonLogRepository
     {
         public void LogPersonEvent(Person person)
         {
@@ -17,7 +18,6 @@ namespace StaplesAppDAL.Repositories
             logEvent.Properties["FirstName"] = person.FirstName;
             logEvent.Properties["LastName"] = person.LastName;
             logger.Log(logEvent);
-
         }
 
         

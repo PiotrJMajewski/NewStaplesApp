@@ -1,0 +1,14 @@
+﻿using StaplesAppDAL.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StaplesAppDAL.Interfaces
+{
+    public interface IPersonXmlRepository
+    {
+        void WriteXML(Person person, string folderPath);
+    }
+}

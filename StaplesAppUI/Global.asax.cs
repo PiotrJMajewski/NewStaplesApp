@@ -1,4 +1,6 @@
-﻿using StaplesAppSL.Support;
+﻿using Ninject;
+using StaplesAppSL.Support;
+using StaplesAppUI.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +20,7 @@ namespace StaplesAppUI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfiguration.ConfigureAutoMapper();
+            DependencyResolver.SetResolver(new NinjectDependencyResolver(new StandardKernel()));
         }
     }
 }
