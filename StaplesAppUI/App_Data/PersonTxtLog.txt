@@ -1,4 +1,1 @@
 FirstName=Jan, LastName=Kowalski
-FirstName=Greta, LastName=van Fleet
-FirstName=Agata, LastName=Walenrod
-FirstName=Micha³, LastName=Kalata
