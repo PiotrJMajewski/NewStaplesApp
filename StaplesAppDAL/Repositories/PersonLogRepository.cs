@@ -11,13 +11,22 @@ namespace StaplesAppDAL.Repositories
 {
     public class PersonLogRepository: IPersonLogRepository
     {
-        public void LogPersonEvent(Person person)
+        public bool LogPersonEvent(Person person)
         {
-            Logger logger = LogManager.GetLogger("Person");
-            LogEventInfo logEvent = new LogEventInfo(LogLevel.Info, "Person", "Adding new person details");
-            logEvent.Properties["FirstName"] = person.FirstName;
-            logEvent.Properties["LastName"] = person.LastName;
-            logger.Log(logEvent);
+            try
+            {
+                Logger logger = LogManager.GetLogger("Person");
+                LogEventInfo logEvent = new LogEventInfo(LogLevel.Info, "Person", "Adding new person details");
+                logEvent.Properties["FirstName"] = person.FirstName;
+                logEvent.Properties["LastName"] = person.LastName;
+                logger.Log(logEvent);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
         }
 
         

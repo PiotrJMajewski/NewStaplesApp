@@ -27,8 +27,13 @@ namespace StaplesAppUI.Controllers
         [HttpPost]
         public async Task<JsonResult> SavePerson(Person person)
         {
-                await personService.AddPerson(person);
+            var isPersonSaved = await personService.AddPerson(person, HttpContext.Server.MapPath("/App_Data"));
+
+            if (isPersonSaved)
                 return Json("success");
+            else
+                return Json("failed");
         }
     }
 }
+

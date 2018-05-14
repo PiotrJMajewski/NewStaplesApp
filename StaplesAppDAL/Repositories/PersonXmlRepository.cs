@@ -12,16 +12,25 @@ namespace StaplesAppDAL.Repositories
 {
     public class PersonXmlRepository: IPersonXmlRepository
     {
-        public void WriteXML(Person person, string folderPath)
+        public bool WriteXML(Person person, string folderPath)
         {
-            System.Xml.Serialization.XmlSerializer writer =
-                new System.Xml.Serialization.XmlSerializer(typeof(Person));
+            try
+            {
+                System.Xml.Serialization.XmlSerializer writer =
+                    new System.Xml.Serialization.XmlSerializer(typeof(Person));
 
-            var path = folderPath + "\\PersonXmlLog.xml";
-            FileStream file = File.Open(path, FileMode.Append, FileAccess.Write);
+                var path = folderPath + "\\PersonXmlLog.xml";
+                FileStream file = File.Open(path, FileMode.Append, FileAccess.Write);
 
-            writer.Serialize(file, person);
-            file.Close();
+                writer.Serialize(file, person);
+                file.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
         }
     }
 }

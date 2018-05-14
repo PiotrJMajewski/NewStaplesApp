@@ -9,6 +9,6 @@ namespace StaplesAppDAL.Interfaces
 {
     public interface IPersonLogRepository
     {
-        void LogPersonEvent(Person person);
+        bool LogPersonEvent(Person person);
     }
 }

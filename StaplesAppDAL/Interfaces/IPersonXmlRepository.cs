@@ -9,6 +9,6 @@ namespace StaplesAppDAL.Interfaces
 {
     public interface IPersonXmlRepository
     {
-        void WriteXML(Person person, string folderPath);
+        bool WriteXML(Person person, string folderPath);
     }
 }

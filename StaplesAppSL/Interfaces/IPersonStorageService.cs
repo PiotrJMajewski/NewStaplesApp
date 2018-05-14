@@ -9,7 +9,7 @@ namespace StaplesAppSL.Interfaces
 {
     public interface IPersonStorageService
     {
-        Task AddPerson(Person person);
+        Task<bool> AddPerson(Person person,  string appDataPath);
         Task<List<Person>> GetPeople();
     }
 }

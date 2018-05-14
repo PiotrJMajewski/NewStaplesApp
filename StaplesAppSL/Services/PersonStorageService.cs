@@ -25,7 +25,7 @@ namespace StaplesAppSL.Services
             this.logRepository = logRepository;
         }
 
-        public async Task AddPerson(Person person)
+        public async Task<bool> AddPerson(Person person, string appDataPath)
         {
             var dalPerson = Mapper.Map<StaplesAppSL.Models.Person, StaplesAppDAL.Models.Person>(person);
 
@@ -34,8 +34,14 @@ namespace StaplesAppSL.Services
             if(!IsPersonExist)
             {
                 await dbRepository.AddAsync(dalPerson);
-                xmlRepository.WriteXML(dalPerson, HttpContext.Current.Server.MapPath("/App_Data"));
                 logRepository.LogPersonEvent(dalPerson);
+                xmlRepository.WriteXML(dalPerson, appDataPath);
+                
+                return true;
+            }
+            else
+            {
+                return false;
             }
         } 
 
